@@ -107,4 +107,4 @@ pnpm lint
 Please be informed commits are intentionly not squashed.
 
 ## Open issues
-None
+Oberveed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.

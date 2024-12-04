@@ -1,3 +1,17 @@
-<p>
-  confirmation-popup works!
-</p>
+<h2 mat-dialog-title>Confirm Deletion</h2>
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button class="mr-4px" mat-button (click)="onCancel()">
+    Cancel
+  </button>
+  <button
+    mat-stroked-button
+    mat-dialog-close
+    color="warn"
+    (click)="onConfirm()"
+  >
+    Delete
+  </button>
+</mat-dialog-actions>

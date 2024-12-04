@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { DocumentModalComponent } from '../document-modal/document-modal.component';
 import { DocumentService } from '../../services/document.service';
 import { MatButtonModule } from '@angular/material/button';
+import { ConfirmationDialogComponent } from '../shared/confirmation-popup/confirmation-popup.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -33,6 +35,7 @@ export class CustomButtonComponent implements ICellRendererAngularComp {
   public documentData!: EmployeeDocument;
   private dialog = inject(MatDialog);
   private documentService = inject(DocumentService);
+  private subscriptions: Subscription[] = [];
 
   agInit(params: ICellRendererParams): void {
     this.refresh(params);
@@ -48,8 +51,23 @@ export class CustomButtonComponent implements ICellRendererAngularComp {
     });
   }
   deleteDocument(id: number) {
-    if (confirm('Are you sure you want to delete this document?')) {
-      this.documentService.deleteDocument(id);
-    }
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      data: {
+        message: 'Are you sure you want to delete this document?',
+      },
+    });
+    const dialogSubscription = dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.documentService.deleteDocument(id);
+      }
+    });
+
+    this.subscriptions.push(dialogSubscription);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => {
+      subscription.unsubscribe();
+    });
   }
 }
