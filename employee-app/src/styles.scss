@@ -1,4 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+// @use "@angular/material" as mat;
+// @include mat.core();
+// @include mat.all-component-themes();
+// @include mat.typography();
+// @include mat.all-component-animations();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.ag-theme-alpine {
+  width: 100%;
+  height: 500px;
+}

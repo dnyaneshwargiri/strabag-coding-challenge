@@ -1,0 +1,13 @@
+<div>
+  <button mat-raised-button color="primary" (click)="createDocument()">
+    Create
+  </button>
+</div>
+<ag-grid-angular
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [pagination]="true"
+  [paginationPageSize]="5"
+  [paginationPageSizeSelector]="pageSizeOptions"
+></ag-grid-angular>

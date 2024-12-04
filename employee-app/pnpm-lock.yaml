@@ -41,6 +41,9 @@ importers:
       ag-grid-angular:
         specifier: ^32.3.3
         version: 32.3.3(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(ag-grid-community@32.3.3)
+      ag-grid-community:
+        specifier: ^32.3.3
+        version: 32.3.3
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
