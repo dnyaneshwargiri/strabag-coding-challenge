@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ColDef, GridOptions } from 'ag-grid-community';
+import { ColDef } from 'ag-grid-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { DocumentModalComponent } from '../document-modal/document-modal.component';
 import { DocumentService } from '../../services/document.service';
@@ -14,7 +14,7 @@ import { Subscription } from 'rxjs';
   standalone: true,
   imports: [MatDialogModule, AgGridAngular],
 })
-export class DocumentTableComponent {
+export class DocumentTableComponent implements OnInit, OnDestroy {
   rowData: EmployeeDocument[] = [];
   pageSizeOptions = [5, 10, 20, 50];
   columnDefs: ColDef[] = [
@@ -83,7 +83,7 @@ export class DocumentTableComponent {
       field: 'actions',
       headerName: 'Actions',
 
-      cellRenderer: (params: any) => {
+      cellRenderer: (params: { data: { id: number } }) => {
         return `
           <button class="mat-button" (click)="editDocument(${params.data.id})">Edit</button>
           <button class="mat-button" (click)="deleteDocument(${params.data.id})">Delete</button>
@@ -95,7 +95,6 @@ export class DocumentTableComponent {
   private documentService = inject(DocumentService);
   private dialog = inject(MatDialog);
   private subscriptions: Subscription[] = [];
-  constructor() {}
 
   ngOnInit(): void {
     const documentDataSubscription = this.documentService.documents$.subscribe(

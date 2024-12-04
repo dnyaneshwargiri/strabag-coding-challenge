@@ -56,9 +56,11 @@ export class DocumentModalComponent {
   save() {
     if (this.form.valid) {
       const doc: EmployeeDocument = { ...this.data, ...this.form.value };
-      this.data
-        ? this.documentService.updateDocument(doc)
-        : this.documentService.addDocument(doc);
+      if (this.data) {
+        this.documentService.updateDocument(doc);
+      } else {
+        this.documentService.addDocument(doc);
+      }
       this.dialogRef.close();
     }
   }
