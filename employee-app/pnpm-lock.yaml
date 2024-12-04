@@ -38,6 +38,9 @@ importers:
       '@angular/router':
         specifier: ^18.2.0
         version: 18.2.13(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.13(@angular/animations@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1)
+      ag-grid-angular:
+        specifier: ^32.3.3
+        version: 32.3.3(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(ag-grid-community@32.3.3)
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -1664,6 +1667,19 @@ packages:
   adjust-sourcemap-loader@4.0.0:
     resolution: {integrity: sha512-OXwN5b9pCUXNQHJpwwD2qP40byEmSgzj8B4ydSN0uMNYWiFmJ6x6KwUllMmfk8Rwu/HJDFR7U8ubsWBoN0Xp0A==}
     engines: {node: '>=8.9'}
+
+  ag-charts-types@10.3.3:
+    resolution: {integrity: sha512-8rmyquaTkwfP4Lzei/W/cbkq9wwEl8+grIo3z97mtxrMIXh9sHJK1oJipd/u08MmBZrca5Jjtn5F1+UNPu/4fQ==}
+
+  ag-grid-angular@32.3.3:
+    resolution: {integrity: sha512-i5wPWUIJujlsnLuQTVEGxGm21lkCbURhgKjZ3qEKjJzLnG6qIR2zJhJYkiV2/427TYDolBm5hdh9oUyT9/FHnQ==}
+    peerDependencies:
+      '@angular/common': '>= 16.0.0'
+      '@angular/core': '>= 16.0.0'
+      ag-grid-community: 32.3.3
+
+  ag-grid-community@32.3.3:
+    resolution: {integrity: sha512-KhSJ3B6mwRFA4cLjNjOZkDndJBh8o83794ZHl4Q7xP9MJf43oCN9qoZ8pyBanohgpVfLcP0scYYCr9xIlzjdiA==}
 
   agent-base@7.1.1:
     resolution: {integrity: sha512-H0TSyFNDMomMNJQBn8wFV5YC/2eJ+VXECwOadZJT554xP6cODZHPX3H9QMQECxvrgiSOP1pHjy1sMWQVYJOUOA==}
@@ -5903,6 +5919,19 @@ snapshots:
     dependencies:
       loader-utils: 2.0.4
       regex-parser: 2.3.0
+
+  ag-charts-types@10.3.3: {}
+
+  ag-grid-angular@32.3.3(@angular/common@18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(ag-grid-community@32.3.3):
+    dependencies:
+      '@angular/common': 18.2.13(@angular/core@18.2.13(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1)
+      '@angular/core': 18.2.13(rxjs@7.8.1)(zone.js@0.14.10)
+      ag-grid-community: 32.3.3
+      tslib: 2.8.1
+
+  ag-grid-community@32.3.3:
+    dependencies:
+      ag-charts-types: 10.3.3
 
   agent-base@7.1.1:
     dependencies:
