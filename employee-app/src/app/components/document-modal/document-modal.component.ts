@@ -22,6 +22,7 @@ import { EmployeePosition } from '../../types/employee-position';
 @Component({
   selector: 'app-document-modal',
   templateUrl: './document-modal.component.html',
+  styleUrls: ['./document-modal.component.scss'],
   standalone: true,
   imports: [
     ReactiveFormsModule,

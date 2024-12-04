@@ -6,13 +6,14 @@ import { DocumentModalComponent } from '../document-modal/document-modal.compone
 import { DocumentService } from '../../services/document.service';
 import { EmployeeDocument } from '../../types/employee-document';
 import { Subscription } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-document-table',
   templateUrl: './document-table.component.html',
   styleUrls: ['./document-table.component.scss'],
   standalone: true,
-  imports: [MatDialogModule, AgGridAngular],
+  imports: [MatDialogModule, AgGridAngular, MatButtonModule,],
 })
 export class DocumentTableComponent implements OnInit, OnDestroy {
   rowData: EmployeeDocument[] = [];

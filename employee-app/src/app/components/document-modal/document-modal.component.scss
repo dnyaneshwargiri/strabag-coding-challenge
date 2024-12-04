@@ -1,0 +1,19 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.form-field {
+  width: 100%;
+  max-width: 400px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
