@@ -30,13 +30,13 @@ A document management web app built with Angular 18, Angular Material, and AG Gr
 
 Below are frameworks/ libraries used to bootstrap this project.
 
-- ![Angular](https://img.shields.io/badge/angular-%2320232a.svg?style=for-the-badge&logo=angular&logoColor=%2361DAFB)
+- ![Angular](https://img.shields.io/badge/angular-%23F442D8.svg?style=for-the-badge&logo=angular&logoColor=%23FFFFFF)
 - ![RxJS](https://img.shields.io/badge/rxjs-%23B7178C.svg?style=for-the-badge&logo=reactivex&logoColor=white)
 - ![Material](https://img.shields.io/badge/-Material-%230170FE?style=for-the-badge&logo=Material&logoColor=white)
 - ![AgGrid](https://img.shields.io/badge/-AgrGrid-%230170FE?style=for-the-badge&logo=aggrid&logoColor=white)
 - ![Pnpm](https://img.shields.io/badge/pnpm-%232C8EBB.svg?style=for-the-badge&logo=pnpm&logoColor=white)
 - ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-- ![Jasmine](https://img.shields.io/badge/jasmine-%23C63D14.svg?style=for-the-badge&logo=jasmine&logoColor=%23FFFFFF)
+- ![Jest](https://img.shields.io/badge/jest-%23C63D14.svg?style=for-the-badge&logo=jest&logoColor=%23FFFFFF)
 
 ## Getting Started
 
@@ -74,7 +74,7 @@ Below are instructions on setting up your project locally.
 
 ## Test and Lint
 
-Run test cases
+Run test cases (testing only data manipulation operations as of now)
 
 ```sh
 pnpm test
@@ -107,4 +107,4 @@ pnpm lint
 Please be informed commits are intentionly not squashed.
 
 ## Open issues
-Oberveed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
+Observed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
