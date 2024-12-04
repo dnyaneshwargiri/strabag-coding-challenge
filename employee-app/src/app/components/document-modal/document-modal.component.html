@@ -1,7 +1,10 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]="true">
+  <mat-icon class="close-icon" color="primary">close</mat-icon>
+</button>
 <h2 mat-dialog-title>
-  {{ data ? "Edit Document" : "Create Document" }}
+  {{ documentData ? "Edit Document" : "Create Document" }}
 </h2>
-<form [formGroup]="form" (ngSubmit)="save()" class="form-container">
+<form [formGroup]="employeeForm" (ngSubmit)="save()" class="form-container">
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>Full Name</mat-label>
     <input matInput formControlName="fullName" />
@@ -27,7 +30,7 @@
   </mat-form-field>
 
   <div class="button-container">
-    <button mat-raised-button type="submit" color="primary">Save</button>
-    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-stroked-button type="submit" color="primary">Save</button>
+    <button mat-stroked-button mat-dialog-close color="warn">Cancel</button>
   </div>
 </form>

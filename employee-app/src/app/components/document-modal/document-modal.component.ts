@@ -18,6 +18,7 @@ import {
 import { DocumentService } from '../../services/document.service';
 import { EmployeeDocument } from '../../types/employee-document';
 import { EmployeePosition } from '../../types/employee-position';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-document-modal',
@@ -31,33 +32,37 @@ import { EmployeePosition } from '../../types/employee-position';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    MatIconModule,
   ],
 })
 export class DocumentModalComponent {
-  form: FormGroup;
+  employeeForm: FormGroup;
   positions: EmployeePosition = ['Developer', 'Manager', 'Designer', 'QA'];
   private formBuilder = inject(FormBuilder);
   private documentService = inject(DocumentService);
   private dialogRef = inject(MatDialogRef<DocumentModalComponent>);
-  constructor(@Inject(MAT_DIALOG_DATA) public data: EmployeeDocument) {
-    this.form = this.formBuilder.group({
+  constructor(@Inject(MAT_DIALOG_DATA) public documentData: EmployeeDocument) {
+    this.employeeForm = this.formBuilder.group({
       fullName: [
-        data?.fullName || '',
+        documentData?.fullName || '',
         [Validators.required, Validators.maxLength(128)],
       ],
       salary: [
-        data?.salary || '',
+        documentData?.salary || '',
         [Validators.required, Validators.pattern('^[0-9]*$')],
       ],
-      email: [data?.email || '', [Validators.email]],
-      position: [data?.position || '', [Validators.required]],
+      email: [documentData?.email || '', [Validators.email]],
+      position: [documentData?.position || '', [Validators.required]],
     });
   }
 
   save() {
-    if (this.form.valid) {
-      const doc: EmployeeDocument = { ...this.data, ...this.form.value };
-      if (this.data) {
+    if (this.employeeForm.valid) {
+      const doc: EmployeeDocument = {
+        ...this.documentData,
+        ...this.employeeForm.value,
+      };
+      if (this.documentData) {
         this.documentService.updateDocument(doc);
       } else {
         this.documentService.addDocument(doc);

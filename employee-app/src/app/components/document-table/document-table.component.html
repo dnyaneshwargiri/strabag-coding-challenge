@@ -1,8 +1,14 @@
-<div>
-  <button mat-raised-button color="primary" (click)="createDocument()">
-    Create
+<div class="create-button-container">
+  <button
+    mat-stroked-button
+    color="primary"
+    (click)="createDocument()"
+    color="primary"
+  >
+    <mat-icon>add</mat-icon> Create Document
   </button>
 </div>
+
 <ag-grid-angular
   class="ag-theme-material"
   [rowData]="rowData"

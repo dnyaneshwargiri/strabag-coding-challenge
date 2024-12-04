@@ -7,13 +7,15 @@ import { DocumentService } from '../../services/document.service';
 import { EmployeeDocument } from '../../types/employee-document';
 import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
+import { CustomButtonComponent } from '../ag-grid/button-group.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-document-table',
   templateUrl: './document-table.component.html',
   styleUrls: ['./document-table.component.scss'],
   standalone: true,
-  imports: [MatDialogModule, AgGridAngular, MatButtonModule,],
+  imports: [MatDialogModule, AgGridAngular, MatButtonModule, MatIconModule],
 })
 export class DocumentTableComponent implements OnInit, OnDestroy {
   rowData: EmployeeDocument[] = [];
@@ -83,13 +85,7 @@ export class DocumentTableComponent implements OnInit, OnDestroy {
     {
       field: 'actions',
       headerName: 'Actions',
-
-      cellRenderer: (params: { data: { id: number } }) => {
-        return `
-          <button class="mat-button" (click)="editDocument(${params.data.id})">Edit</button>
-          <button class="mat-button" (click)="deleteDocument(${params.data.id})">Delete</button>
-        `;
-      },
+      cellRenderer: CustomButtonComponent,
     },
   ];
 
@@ -105,19 +101,6 @@ export class DocumentTableComponent implements OnInit, OnDestroy {
   }
   createDocument() {
     this.dialog.open(DocumentModalComponent, { width: '400px' });
-  }
-
-  editDocument(document: EmployeeDocument) {
-    this.dialog.open(DocumentModalComponent, {
-      width: '400px',
-      data: document,
-    });
-  }
-
-  deleteDocument(id: number) {
-    if (confirm('Are you sure you want to delete this document?')) {
-      this.documentService.deleteDocument(id);
-    }
   }
 
   ngOnDestroy(): void {
