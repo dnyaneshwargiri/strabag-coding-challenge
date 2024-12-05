@@ -121,10 +121,15 @@ export class DocumentTableComponent implements OnInit, OnDestroy {
 
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-    const page = Number(this.route.snapshot.paramMap.get('page')) || 1;
+    const pageParam = this.route.snapshot.paramMap.get('page');
+    const page = Number(pageParam);
     const totalPages = this.gridApi.paginationGetTotalPages();
-    const isValidPage = page > 0 && page <= totalPages;
-    this.gridApi.paginationGoToPage(isValidPage ? page - 1 : 0);
+  
+    if (!isNaN(page) && page >= 1 && page <= totalPages) {
+      this.gridApi.paginationGoToPage(page - 1);
+    } else {      
+      this.router.navigate(['/page', 1], { replaceUrl: true });
+    }
   }
 
   onPaginationChanged() {
