@@ -80,7 +80,9 @@ Run test cases
 ```sh
 pnpm test
 ```
-<img width="1438" alt="unit-test-cases" src="https://github.com/user-attachments/assets/44222f52-f13a-4816-ba4c-3e831868ae3f">
+
+<img width="899" alt="unit-test-cases" src="https://github.com/user-attachments/assets/9c9885e5-cdd7-413a-895b-80810cb68817">
+
 
 Check for linting Warnings, Error
 
@@ -109,4 +111,4 @@ pnpm lint
 Please be informed commits are intentionly not squashed.
 
 ## Open issues
-Non-breaking, Non-functional: Observed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
+1. Non-breaking, Non-functional: Observed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
