@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 import { EmployeeDocument } from '../../../types/employee-document';
 import { DocumentService } from '../../../services/document.service';
 import { DocumentModalComponent } from '../../document-modal/document-modal.component';
-import { ConfirmationDialogComponent } from '../confirmation-popup/confirmation-popup.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   standalone: true,

@@ -4,9 +4,9 @@ import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-confirmation-popup',
-  templateUrl: './confirmation-popup.component.html',
-  styleUrls: ['./confirmation-popup.component.scss'],
+  selector: 'app-confirmation-dialog',
+  templateUrl: './confirmation-dialog.component.html',
+  styleUrls: ['./confirmation-dialog.component.scss'],
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
 })

@@ -5,22 +5,22 @@
   {{ documentData ? "Edit Document" : "Create Document" }}
 </h2>
 <form [formGroup]="employeeForm" (ngSubmit)="save()" class="form-container">
-  <mat-form-field appearance="fill" class="form-field">
+  <mat-form-field appearance="outline" class="form-field">
     <mat-label>Full Name</mat-label>
     <input matInput formControlName="fullName" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="form-field">
+  <mat-form-field appearance="outline" class="form-field">
     <mat-label>Salary</mat-label>
     <input matInput type="number" formControlName="salary" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="form-field">
+  <mat-form-field appearance="outline" class="form-field">
     <mat-label>Email Address</mat-label>
     <input matInput type="email" formControlName="email" />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" class="form-field">
+  <mat-form-field appearance="outline" class="form-field">
     <mat-label>Position</mat-label>
     <mat-select formControlName="position">
       @for (position of positions; track $index) {
