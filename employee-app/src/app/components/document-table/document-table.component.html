@@ -16,4 +16,6 @@
   [pagination]="true"
   [paginationPageSize]="5"
   [paginationPageSizeSelector]="pageSizeOptions"
+  (gridReady)="onGridReady($event)"
+  (paginationChanged)="onPaginationChanged()"
 ></ag-grid-angular>

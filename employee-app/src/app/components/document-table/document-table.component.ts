@@ -1,6 +1,6 @@
 import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { ColDef } from 'ag-grid-community';
+import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { AgGridAngular } from 'ag-grid-angular';
 import { DocumentModalComponent } from '../document-modal/document-modal.component';
 import { DocumentService } from '../../services/document.service';
@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CustomButtonComponent } from '../common/ag-grid/button-group.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-document-table',
@@ -91,21 +92,49 @@ export class DocumentTableComponent implements OnInit, OnDestroy {
 
   private documentService = inject(DocumentService);
   private dialog = inject(MatDialog);
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
+
   private subscriptions: Subscription[] = [];
+  private gridApi!: GridApi;
 
   ngOnInit(): void {
     const documentDataSubscription = this.documentService.documents$.subscribe(
       (data) => (this.rowData = data)
     );
     this.subscriptions.push(documentDataSubscription);
+    this.subscriptions.push(
+      this.route.paramMap.subscribe((params) => {
+        const page = Number(params.get('page')) || 1;
+        if (this.gridApi) {
+          const totalPages = this.gridApi.paginationGetTotalPages();
+          const isValidPage = page > 0 && page <= totalPages;
+          this.gridApi.paginationGoToPage(isValidPage ? page - 1 : 0);
+        }
+      })
+    );
   }
+
   createDocument() {
     this.dialog.open(DocumentModalComponent, { width: '400px' });
   }
 
+  onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+    const page = Number(this.route.snapshot.paramMap.get('page')) || 1;
+    const totalPages = this.gridApi.paginationGetTotalPages();
+    const isValidPage = page > 0 && page <= totalPages;
+    this.gridApi.paginationGoToPage(isValidPage ? page - 1 : 0);
+  }
+
+  onPaginationChanged() {
+    if (this.gridApi) {
+      const currentPage = this.gridApi.paginationGetCurrentPage() + 1;
+      this.router.navigate(['/page', currentPage]);
+    }
+  }
+
   ngOnDestroy(): void {
-    this.subscriptions.forEach((subscription) => {
-      subscription.unsubscribe();
-    });
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 }
