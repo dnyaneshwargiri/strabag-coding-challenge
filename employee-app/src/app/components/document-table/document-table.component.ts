@@ -7,8 +7,8 @@ import { DocumentService } from '../../services/document.service';
 import { EmployeeDocument } from '../../types/employee-document';
 import { Subscription } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
-import { CustomButtonComponent } from '../ag-grid/button-group.component';
 import { MatIconModule } from '@angular/material/icon';
+import { CustomButtonComponent } from '../common/ag-grid/button-group.component';
 
 @Component({
   selector: 'app-document-table',

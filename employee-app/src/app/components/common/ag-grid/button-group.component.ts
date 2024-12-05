@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { ICellRendererParams } from 'ag-grid-community';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
-import { EmployeeDocument } from '../../types/employee-document';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { DocumentModalComponent } from '../document-modal/document-modal.component';
-import { DocumentService } from '../../services/document.service';
 import { MatButtonModule } from '@angular/material/button';
-import { ConfirmationDialogComponent } from '../shared/confirmation-popup/confirmation-popup.component';
 import { Subscription } from 'rxjs';
+import { EmployeeDocument } from '../../../types/employee-document';
+import { DocumentService } from '../../../services/document.service';
+import { DocumentModalComponent } from '../../document-modal/document-modal.component';
+import { ConfirmationDialogComponent } from '../confirmation-popup/confirmation-popup.component';
 
 @Component({
   standalone: true,

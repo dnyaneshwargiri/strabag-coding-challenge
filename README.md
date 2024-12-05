@@ -45,9 +45,10 @@ Below are instructions on setting up your project locally.
 ### Prerequisites
 
 - Node 21
-- Pnpm 9.14.4
+- Pnpm 9.14.4app
 - Typescript: ~5.5.2
 - Angular: ^18.2.0
+- AgGrid: ^32.3.3
 
 ### Installation
 
@@ -107,4 +108,4 @@ pnpm lint
 Please be informed commits are intentionly not squashed.
 
 ## Open issues
-Observed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
+Non-breaking, Non-functional: Observed console error for modal ==> Blocked aria-hidden on an element because its descendant retained focus.
